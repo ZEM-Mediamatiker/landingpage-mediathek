@@ -15,7 +15,7 @@ $lang['YOUTUBE'] = 'YouTube';
 $lang['ITUNES'] = 'iTunes';
 $lang['POSTKARTEN'] = 'Cartes Postales';
 
-$lang['META_SEITENTITEL'] = 'mediathque';
+$lang['META_SEITENTITEL'] = 'Médiathèque DDPS';
 
 $lang['PAGE_WILLKOMMEN'] = 'Bienvenue à notre ';
 $lang['PAGE_WILLKOMMEN_BOLD'] = 'plateforme des médias!';

@@ -232,7 +232,7 @@ label{
 
 .button-label{
 	color: rgba(255,255,255,1);
-	font-size: 18px;
+	font-size: 16px;
 	text-transform: uppercase;
 	letter-spacing: 2.88px;
 	text-align: center;
@@ -253,6 +253,19 @@ label{
 	right: 0px;
 	top: 0px;
 	cursor: pointer;
+	-webkit-border-top-right-radius: 29px;
+	-webkit-border-bottom-right-radius: 29px;
+	-moz-border-radius-topright: 29px;
+	-moz-border-radius-bottomright: 29px;
+	border-top-right-radius: 29px;
+	border-bottom-right-radius: 29px;
+}
+
+.open-button-menu:hover{
+	background: rgba(237, 237, 237,0.5);
+	border: 3px solid #3498db;
+	border-left: 1px solid #3498db;
+	padding-top: -3px;
 }
 
 .open-button-menu-button{
@@ -262,7 +275,9 @@ label{
 	border-right: 5px solid transparent;	
 	border-top: 4px solid rgba(255,255,255,1);
 	margin: 27px 0px 27px 12px;
-	transition: 0.3s;
+	position: absolute;
+	left: 0px;
+	transition: transform 0.3s;
 }
 
 #check-flyout{
@@ -279,7 +294,17 @@ label{
     -o-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
+    position: absolute;
+    
 }
+
+.open-button-menu:hover .open-button-menu-button{
+	position: absolute;
+	left: 0px;
+	margin-top: 24px;
+	margin-left: 11px;
+}
+
 
 .button-flyover{
 	width: 239px;
@@ -374,7 +399,7 @@ p.more{
 	width: 376px;
 	height: 70px;
 	float: left;
-	/*transition: 0.3s ease;*/
+	transition: background 0.3s ease;
 	
 }
 
@@ -401,8 +426,8 @@ p.more{
 .offer-link{
 	text-transform: uppercase;
 	color: rgba(255,255,255,1);
-	font-size: 18px;
-	margin-top: 3px;
+	font-size: 16px;
+	margin-top: 4px;
 	float: left;
 	letter-spacing: 2.88px;
 }
@@ -414,6 +439,7 @@ p.more{
 	color: rgba(255,255,255,1);
 	transform: scaleY(2.6463);
 	transition: 0.5s ease;
+	display: none;
 }
 
 #itunes img{

@@ -15,7 +15,7 @@ $lang['YOUTUBE'] = 'YouTube';
 $lang['ITUNES'] = 'iTunes';
 $lang['POSTKARTEN'] = 'Postkarten';
 
-$lang['META_SEITENTITEL'] = 'mediathek';
+$lang['META_SEITENTITEL'] = 'Mediathek VBS';
 
 $lang['PAGE_WILLKOMMEN'] = 'Willkommen in der ';
 $lang['PAGE_WILLKOMMEN_BOLD'] = 'Mediathek!';
