@@ -47,8 +47,22 @@ include_once 'partitials/multilanguage.php';
 	
 		
 </head>
-<body>
+<body data-uk-parallax="{bg:-200}"> 	
 	<input type="checkbox" id="check-flyout">
+	
+	
+	<div id="page-preload-wrapper">
+		<div id="page-preload-content">
+		
+			<img src="img/logo-mediathek.svg" alt="Logo mediathek.admin.ch"><br>
+			<div class="spinner">
+  				<div class="dot1"></div>
+  				<div class="dot2"></div>
+			</div>
+		</div>
+	
+	
+	</div>
 	
 	<div id="pagewrapper">
 	
@@ -106,7 +120,7 @@ include_once 'partitials/multilanguage.php';
 								<div class="flyover-container">
 									<ul>
 										<li><a href="#1"><?php echo $lang['BACKEND']; ?></a></li>
-										<li><a href="#2"><?php echo $lang['HANDBUCH']; ?></a></li>
+										<li><a href="http://digame.zem.ch"><?php echo $lang['HANDBUCH']; ?></a></li>
 									</ul>								
 								</div>
 							</div>
@@ -129,7 +143,7 @@ include_once 'partitials/multilanguage.php';
 		
 		<section id="offers">
 			<div id="offers-container">
-				<a class="offer-link" href="#">
+				<a class="offer-link" href="https://www.youtube.com/user/schweizerarmee" target="_blank" alt="YouTube-Kanal der Schweizer Armee">
 				<div id="youtube" class="offers-box wow fadeInUp">
 				<!--[if lt IE 9]><img src="img/youtube_white.svg" width="44" height="30" alt="Logo YouTube" /><![endif]-->
 					<p class="icon">&#xe601;</p>
@@ -137,7 +151,7 @@ include_once 'partitials/multilanguage.php';
 					<p class="offer-arrow">&gt;</p>					
 				</div>
 				</a>
-				<a class="offer-link" href="#">
+				<a class="offer-link" href="">
 				<div id="itunes" class="offers-box wow fadeInUp">
 				<!--[if lt IE 9]><img src="img/itunes_white.svg" width="35" height="35" alt="Logo iTunes" /><![endif]-->
 					<p class="icon">&#xe600;</p>
@@ -156,29 +170,41 @@ include_once 'partitials/multilanguage.php';
 				<div class="clearfix"></div>
 			</div>
 			<div class="clearfix"></div>		
-		</section>		
-		
+		</section>
 	</div>
 	
 	<footer id="footer">
 		<img src="img/logo-mediathek.svg" height="30" alt="Logo mediathek.admin.ch"><br>
-		<a href="http://zem.ch" target="_blank">© VBS/DDPS - ZEM</a>
+		<a href="http://zem.ch" target="_blank">&copy; <?php echo date('Y') ?> &ndash; VBS/DDPS - ZEM</a>
 	</footer>	
 	
-	<script>		
+	<script>
+		// Diese Funktion erlaubt es die Sprache umzuschalten, je nach dem in welchem Zustand
+		// (checked bzw. not checked) sich die Checkbox befindet und hängt den entsprechenden 
+		// Parameter der URL-Zeile hinzu und lädt die Seite damit neu. 		
 		function toggle(cb) {
 			if(cb.checked){
 				window.location.search = "lang=fr";
 			} else {
 				window.location.search = "lang=de";
 			}			
-		}
-			
+		}			
 		if(window.location.search == "?lang=fr"){
 			document.getElementsByClassName("switch-input")[0].checked = true;
 		}else{
 			document.getElementsByClassName("switch-input")[0].checked = false;
 		}		
+	</script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/uikit.min.js"></script>
+	<script src="js/parallax.js"></script>
+	<script>
+		setTimeout(function(){
+     	$('#page-preload-wrapper').remove();
+		},2000);
+		setTimeout(function(){
+     	$('#page-preload-content').remove();
+		},1600);
 	</script>
 	<script src="js/wow.min.js"></script>
 	<script>

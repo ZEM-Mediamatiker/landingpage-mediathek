@@ -1,3 +1,15 @@
+/* - - -
+
+	mediathek.admin.ch
+	© zentrum elektronische medien zem
+
+- - - */
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+	globale Definitionen
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
 *{
 	margin: 0;
   	padding: 0;
@@ -10,16 +22,23 @@
 }
 
 body{
-	background: url(../img/background-mediathek-min.jpg) no-repeat center center fixed; 
+	background-image: url(../img/background-mediathek-min.jpg);
   	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
   	background-size: cover;
 }
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Schriftdefinitionen
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 a{
 	text-decoration: none;
+}
+
+.bold{
+	font-family: 'open_sansbold';
 }
 
 p.icon{
@@ -37,8 +56,166 @@ p.icon{
 	-moz-osx-font-smoothing: grayscale;
 }
 
+#title h1{
+	letter-spacing: 4.075px;
+	color: #ffffff;
+	font-size: 39px;
+	text-align: center;
+	margin: 160px 0px 50px 0px;
+}
 
+.boxes-title{
+	color: #393838;
+	font-size: 26px; 
+	font-family: 'open_sansbold', Frutiger, Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 16px;
+}
 
+p.more{
+	display: block;
+	color: #ffffff;
+	font-size: 14px;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 2.24px;
+	margin: 0px 54px;
+	display: inline-block;
+}
+
+.flyover-container ul li a{
+	color: rgba(255,255,255,1);
+	text-decoration: none;
+	font-size: 18px;
+	text-transform: uppercase;
+	letter-spacing: 2.88px;
+	text-align: center;
+	margin: -11px -40px -11px -40px;
+    padding: 11px 40px 11px 40px;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+	page-preloading Effekt
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+#page-preload-wrapper{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #393838;
+	overflow: hidden;
+	z-index: 1000;
+	-webkit-animation: ausblendenOverlay 1s; 
+    -webkit-animation-delay: 1s;
+    animation: ausblendenOverlay 1s;
+    animation-delay: 1s;	
+}
+
+#page-preload-content{
+	left:50%;
+	top:50%;
+	margin: -81px 0px 0px -210px;
+	width: 420px;
+	height: 162px;
+	position: absolute;
+	text-align: center;
+	-webkit-animation: ausblendenElemente 0.5s;
+    -webkit-animation-delay: 0s; 
+    animation: ausblendenElemente 0.6s;
+    animation-delay: 1s;
+}
+
+#page-preload-content img{
+	display: inline-block;
+	margin: 18px auto 8px auto;
+}
+
+/*
+	Animation des Ausblendens vom grauen Overlay
+*/
+@-webkit-keyframes ausblendenOverlay {
+    from {opacity:1}
+    to {opacity:0}
+}
+
+@keyframes ausblendenOverlay {
+    from {opacity:1}
+    to {opacity:0}
+}
+
+/*
+	Animation des Ausblendens von den Elementen im Overlay für einen sauberen Übergang
+*/
+@-webkit-keyframes ausblendenElemente {
+    from {opacity:1}
+    to {opacity:0}
+}
+
+@keyframes ausblendenElemente {
+    from {opacity:1}
+    to {opacity:0}
+}
+
+/*
+	Spinner-Ladeicon. 
+	von tobiasahlin.com/spinkit/ | many thanks!
+*/
+.spinner {
+	margin: 0 auto;
+	margin-top: 30px;
+  	width: 30px;
+	height: 30px;
+	position: relative;
+	text-align: center;
+  	-webkit-animation: rotate 2.0s infinite linear;
+	animation: rotate 2.0s infinite linear;
+}
+
+.dot1, .dot2 {
+	width: 60%;
+	height: 60%;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	background-color: #fff;
+	border-radius: 100%;
+	-webkit-animation: bounce 2.0s infinite ease-in-out;
+	animation: bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+	top: auto;
+	bottom: 0px;
+	-webkit-animation-delay: -1.0s;
+	animation-delay: -1.0s;
+}
+
+@-webkit-keyframes rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+
+@-webkit-keyframes bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Definitionen im Zusammenhang mit dem Content
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* 
+	Dies ist der Wrapper um den Content. Die Höhe passt sich immer an den Inhalt an 
+*/
 #pagewrapper{
 	margin: 0 auto;
 	width: 1168px;
@@ -52,6 +229,7 @@ p.icon{
 	margin-top: 13px;
 }
 
+/* Sprachumschalter */
 #language-switch{
 	float: right;
 }
@@ -97,23 +275,21 @@ label{
   -o-transition: inherit;
   transition: inherit;
 }
+
+/*
+	Durch die Pseudoklasse :before und :after wird der Wert des data-on und data-off 
+	Attributs aus dem HTML-Code angesprochen und kann so angepasst werden.
+*/
 .switch-label:before {
   content: attr(data-off);
   right: 4px;
   color: rgba(255,255,255,1);
 }
+
 .switch-label:after {
   content: attr(data-on);
   left: 4px;
   color: rgba(255,255,255,1);
-  /*opacity: 0;*/
-}
-
-.switch-input:checked ~ .switch-label:before {
-  /*opacity: 0;*/
-}
-.switch-input:checked ~ .switch-label:after {
-  /*opacity: 1;*/
 }
 
 .switch-handle {
@@ -141,26 +317,23 @@ label{
   left: 2px;
 }
 
-#title h1{
-	letter-spacing: 4.075px;
-	color: #ffffff;
-	font-size: 39px; /* Näherungswert aufgrund einer Schriftersetzung */
-	text-align: center;
-	margin: 160px 0px 50px 0px;
-}
-
-.bold{
-	font-family: 'open_sansbold';
-}
-
+/* 
+	Die folgenden Definitionen stylen die beiden grossen Boxen fürs Foto und Videoportal 
+*/
 .boxes-box{
 	background-color: #ffffff;
 	float: left;
 	width: 574px;
-	/*height: 420px;*/
 	margin: 0px 10px 0px 10px;
 }
 
+/*
+	Mit first-child und :last-child kann das jeweils erste bzw. das letzte Element einer
+	Klasse angesprochen werden. Damit wird hier erreicht, dass die erste und letzte 
+	Box jeweils aussen kein Margin haben und sich so in das Layout einpassen. Diese
+	Lösung funktioniert hier nur, da die Elemente nicht auf mehreren vertikalen Ebenen
+	vorkommen. Hier müsste auf die :nth-child() Klasse ausgewichen werden.
+*/
 .boxes-box:first-child{
 	margin-left: 0px;
 }
@@ -247,7 +420,6 @@ label{
 .open-button-menu{
 	position: absolute !important;
 	width: 40px;
-	/*border-left: 1px solid rgba(255,255,255,0.4);*/
 	height: 58px;
 	z-index: 10;
 	right: 0px;
@@ -280,10 +452,18 @@ label{
 	transition: transform 0.3s;
 }
 
+/*
+	Die Checkbox, welche für das Ein- und Ausblenden des Flyovermenus verantwortlich ist
+*/
 #check-flyout{
     display: none;  
 }
 
+/*
+	Wenn die Checkbox den Status checked hat, soll das Flyover von display:none auf
+	display:block geändert werden. Zudem wird der kleine Pfeil mit einer Drehung
+	um 180 Grad animiert.
+*/
 #check-flyout:checked ~ #pagewrapper #boxes #boxes-container #fotoportal .boxes-button .button .button-flyover{
     display:block;
 }
@@ -298,13 +478,15 @@ label{
     
 }
 
+/*
+	Formatierungen im Zusammenhang mit dem Flyovermenu
+*/
 .open-button-menu:hover .open-button-menu-button{
 	position: absolute;
 	left: 0px;
 	margin-top: 24px;
 	margin-left: 11px;
 }
-
 
 .button-flyover{
 	width: 239px;
@@ -343,34 +525,22 @@ label{
 	padding-bottom: 0px;
 }
 
-.flyover-container ul li a{
-	color: rgba(255,255,255,1);
-	text-decoration: none;
-	font-size: 18px;
-	text-transform: uppercase;
-	letter-spacing: 2.88px;
-	text-align: center;
-	margin: -11px -40px -11px -40px;
-    padding: 11px 40px 11px 40px;
-}
-
-
-
-.boxes-title{
-	color: #393838;
-	font-size: 26px; /* Näherungswert aufgrund einer Schriftersetzung */
-	font-family: 'open_sansbold', Frutiger, Helvetica, Arial, sans-serif;
-	text-transform: uppercase;
-	text-align: center;
-	margin-top: 16px;
-}
+/* 	
+	Hier werden die Eigenschaften für den Trenner zwischen den grossen und den kleinen
+	Boxen definiert.
+*/
 
 #more-text{
 	margin: 0 auto;
 	margin: 100px 0px 50px 0px;
+	/* 
+		Da das Elternelement die Eigenschaft text-align:center; zugewiesen hat, können
+		auch andere Elemente wie in diesem Fall die nachfolgenden Linien (div) von dieser
+		Eigenschaft profitieren, wenn sie über die Eigenschaft display:inline-block
+		verfügen. So können auch mehrere gefloatete Elemente horizontal zentriert werden
+	*/
 	text-align: center;
 }
-
 
 .linie{
 	background-color: #ffffff;
@@ -380,27 +550,13 @@ label{
 	display: inline-block;
 }
 
-p.more{
-	display: block;
-	color: #ffffff;
-	font-size: 14px; /* Näherungswert aufgrund einer Schriftersetzung */
-	text-align: center;
-	text-transform: uppercase;
-	letter-spacing: 2.24px;
-	margin: 0px 54px;
-	display: inline-block;
-}
-
-
-
 .offers-box{
 	padding: 20px 15px 0px 40px;
 	background: #3498db;
 	width: 376px;
 	height: 70px;
 	float: left;
-	transition: background 0.3s ease;
-	
+	transition: background 0.3s ease;	
 }
 
 #youtube{
@@ -465,7 +621,9 @@ p.more{
 	margin-right: 10px;
 }
 
-
+/*
+	Im folgenden Bereich werden die Eigenschaften des Footers definiert
+*/
 
 #footer{
 	margin-top: 100px;
@@ -489,8 +647,9 @@ p.more{
 	text-decoration: none;
 }
 
-
-
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Webfonts
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 @font-face {
     font-family: 'open_sansbold';
@@ -530,6 +689,10 @@ p.more{
 
 }
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	clearfix
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
 .clearfix:after {
     content: ".";
     clear: both;
@@ -538,20 +701,9 @@ p.more{
     height: 0px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	Mediaquerys
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 @media only screen and (max-width: 1200px){
